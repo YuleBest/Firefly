@@ -1,8 +1,6 @@
 import {
 	type NavBarConfig,
 	type NavBarLink,
-	type NavBarSearchConfig,
-	NavBarSearchMethod,
 } from "../types/navBarConfig";
 
 // ============================================================================
@@ -133,11 +131,6 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 	// });
 
 	return { links } as NavBarConfig;
-};
-
-// 导航搜索配置
-export const navBarSearchConfig: NavBarSearchConfig = {
-	method: NavBarSearchMethod.PageFind,
 };
 
 // ============================================================================

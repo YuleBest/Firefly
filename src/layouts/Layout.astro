@@ -48,7 +48,6 @@ interface Props {
 	description?: string;
 	lang?: string;
 	setOGTypeArticle?: boolean;
-	postSlug?: string;
 	postCoverImage?: string;
 	ogImageWidth?: number;
 	ogImageHeight?: number;
@@ -61,7 +60,6 @@ let {
 	description,
 	lang,
 	setOGTypeArticle,
-	postSlug,
 	postCoverImage,
 	ogImageWidth: propsOgImageWidth,
 	ogImageHeight: propsOgImageHeight,
@@ -128,19 +126,14 @@ const aboutUrl =
 // 站点 publisher logo（Organization.logo），用于首页 @graph 的 Organization 节点
 const siteLogo = await getSiteLogo();
 
-// canonical：对 /archive/ 与 /search/ 剥离查询串，避免筛选视图自我 canonical 到 ?tag= 等
+// canonical：对 /archive/ 剥离查询串，避免筛选视图自我 canonical 到 ?tag= 等
 const canonicalUrl = getCanonicalUrl(Astro.url);
 
-// OG 图片：文章走生成图/封面，非文章页回退到站点 logo
+// OG 图片：文章使用封面图，非文章页回退到站点 logo
 let ogImageUrl: string | undefined;
 let ogImageWidth: number | undefined;
 let ogImageHeight: number | undefined;
-const isGeneratedOg = siteConfig.post.generateOgImages && postSlug;
-if (isGeneratedOg) {
-	ogImageUrl = new URL(`/og/${postSlug}.png`, Astro.site).toString();
-	ogImageWidth = 1200;
-	ogImageHeight = 630;
-} else if (postCoverImage) {
+if (postCoverImage) {
 	ogImageUrl = postCoverImage; // 已由文章页算成绝对 URL
 	ogImageWidth = propsOgImageWidth;
 	ogImageHeight = propsOgImageHeight;

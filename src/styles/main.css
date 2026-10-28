@@ -18,7 +18,8 @@
 /* Tailwind v4 配置 - 从 tailwind.config.cjs 迁移 */
 @theme {
   --font-sans:
-    'Roboto', 'sans-serif', ui-sans-serif, system-ui, sans-serif,
+    ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
@@ -224,8 +225,7 @@ html {
     .is-theme-transitioning #display-setting,
     .is-theme-transitioning #nav-menu-panel,
     .is-theme-transitioning #translate-panel,
-    .is-theme-transitioning #mobile-toc-panel,
-    .is-theme-transitioning #search-panel {
+    .is-theme-transitioning #mobile-toc-panel {
         transition: none !important;
         backdrop-filter: none !important;
         -webkit-backdrop-filter: none !important;
@@ -393,9 +393,6 @@ html {
     /* 移动端导航抽屉打开时锁定背景滚动（由 floating-panel-utils 按 data-floating-panel-scroll-lock 切换） */
     body.menu-open {
         overflow: hidden;
-    }
-    .search-panel mark {
-        @apply bg-transparent text-(--primary)
     }
 
     .btn-card {

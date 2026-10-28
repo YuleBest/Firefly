@@ -1,5 +1,5 @@
 import type { ProfileConfig, SiteConfig } from "@/types/config";
-import { getSearchUrl, url } from "./url-utils";
+import { url } from "./url-utils";
 
 /**
  * 把 src 解析成绝对 URL 字符串。
@@ -171,8 +171,6 @@ export function buildSiteGraph(opts: {
 		siteConfig: opts.siteConfig,
 		logo: opts.logo,
 	});
-	// 站点搜索页 /search/?q=，供 Sitelinks Search Box 使用
-	const searchTarget = `${new URL(getSearchUrl(""), siteUrl).toString()}{search_term_string}`;
 
 	return {
 		"@context": "https://schema.org",
@@ -185,14 +183,6 @@ export function buildSiteGraph(opts: {
 				description: opts.siteConfig.description,
 				inLanguage: opts.lang,
 				publisher: { "@id": `${siteUrl}#person` },
-				potentialAction: {
-					"@type": "SearchAction",
-					target: {
-						"@type": "EntryPoint",
-						urlTemplate: searchTarget,
-					},
-					"query-input": "required name=search_term_string",
-				},
 			},
 			person,
 			publisher,

@@ -30,8 +30,6 @@ export type { MusicPlayerConfig } from "./musicConfig";
 export type {
 	NavBarConfig,
 	NavBarLink,
-	NavBarSearchConfig,
-	NavBarSearchMethod,
 } from "./navBarConfig";
 export type { Live2DWidgetConfig, SpineModelConfig } from "./pioConfig";
 export type { PlantUMLConfig } from "./plantumlConfig";

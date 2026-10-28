@@ -118,8 +118,6 @@ Firefly 项目中所有可复用组件的集中管理。组件按照功能和职
 
 特定页面使用的组件，不用于其他页面。
 
-- `AdvancedSearch.svelte` - 高级搜索组件
-
 **pages/bangumi/** - 番组计划页面组件
 - `BangumiGrid.svelte` - 番组网格布局组件
 - `BangumiSection.svelte` - 番组分类展示组件

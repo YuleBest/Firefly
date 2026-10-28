@@ -68,16 +68,12 @@ export function getFileDirFromPath(filePath: string): string {
 	return filePath.replace(/^src\//, "").replace(/\/[^/]+$/, "");
 }
 
-export function getSearchUrl(query: string): string {
-	return url(`/search/?q=${encodeURIComponent(query.trim())}`);
-}
-
-// 生成 canonical URL：仅对客户端筛选路由（/archive/ 与 /search/）剥离查询串，
-// 避免 ?tag=/?category=/?q= 这类服务端渲染下会被写进 Astro.url 的重复内容 URL
+// 生成 canonical URL：仅对客户端筛选路由（/archive/）剥离查询串，
+// 避免 ?tag=/?category= 这类服务端渲染下会被写进 Astro.url 的重复内容 URL
 // 自我 canonical。分页（/2/）、文章页等无查询串的路径保持原样。
 export function getCanonicalUrl(urlObj: URL): string {
 	const pathname = urlObj.pathname;
-	if (pathname === "/archive/" || pathname === "/search/") {
+	if (pathname === "/archive/") {
 		return new URL(pathname, urlObj.origin).toString();
 	}
 	return urlObj.toString();
