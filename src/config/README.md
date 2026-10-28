@@ -4,7 +4,7 @@
 
 ## 📁 配置文件结构
 
-```
+```text
 src/config/
 ├── index.ts                  # 配置索引文件 - 统一导出
 ├── siteConfig.ts             # 站点基础配置
@@ -35,11 +35,13 @@ src/config/
 ## 🚀 使用方式
 
 ### 推荐：使用配置索引（统一导入）
+
 ```typescript
 import { siteConfig, profileConfig } from "@/config";
 ```
 
 ### 直接导入单个配置
+
 ```typescript
 import { siteConfig } from "@/config/siteConfig";
 import { profileConfig } from "@/config/profileConfig";
@@ -48,7 +50,7 @@ import { profileConfig } from "@/config/profileConfig";
 ## 📋 配置文件列表
 
 | 文件 | 说明 |
-|------|------|
+| ------ | ------ |
 | `siteConfig.ts` | 站点基础配置（标题、描述、主题色、页面宽度、文章内容页配置等） |
 | `analyticsConfig.ts` | 统计分析配置（Google Analytics、Microsoft Clarity、Umami、51la） |
 | `announcementConfig.ts` | 公告配置（标题、内容、类型、链接等） |

@@ -36,7 +36,7 @@ export type SiteConfig = {
 	description?: string; // 网站描述，用于生成 <meta name="description">
 	keywords?: string[]; // 站点关键词，用于生成 <meta name="keywords">
 
-	lang: "en" | "zh_CN" | "zh_TW" | "ja" | "ru" | "ko";
+	lang: "zh_CN";
 
 	themeColor: {
 		hue: number;
@@ -90,11 +90,8 @@ export type SiteConfig = {
 		friends: boolean; // 友链页面开关
 		sponsor: boolean; // 打赏页面开关
 		guestbook: boolean; // 留言板页面开关
-		bangumi: boolean;
 		vndb: boolean;
-		mal: boolean; // MyAnimeList 页面开关
 		gallery: boolean; // 相册页面开关
-		bilibili: boolean; // 哔哩哔哩追番页面开关
 		dynamic: boolean; // 动态页面开关
 		projects: boolean; // 项目展示页开关
 	};
@@ -172,24 +169,6 @@ export type SiteConfig = {
 		immersiveReading?: ImmersiveReadingConfig;
 	};
 
-	// bangumi配置
-	bangumi?: {
-		userId?: string; // Bangumi用户ID
-		mode?: "static" | "dynamic"; // 数据模式：static=构建时获取，dynamic=客户端实时获取
-		apiUrl?: string; // Bangumi API 地址
-		subjectBaseUrl?: string; // 条目详情页地址
-		categoryOrder?: ("anime" | "game" | "book" | "music" | "real")[]; // 条目类型排序顺序
-		// 各分类的显示启用状态，未设置时默认启用
-		categories?: {
-			book?: boolean;
-			anime?: boolean;
-			music?: boolean;
-			game?: boolean;
-			real?: boolean;
-		};
-		nsfw?: NsfwMode; // NSFW 处理："off" 不过滤 | "blur" 仅模糊封面 | "hide" 隐藏条目
-	};
-
 	// VNDB 配置
 	vndb?: {
 		userId?: string; // VNDB 用户 ID，例如 "u2"
@@ -199,21 +178,6 @@ export type SiteConfig = {
 		vnBaseUrl?: string; // VNDB 条目详情页地址，末尾需要带 /
 		apiToken?: string; // 私密列表访问令牌，仅 static 模式下使用
 		nsfw?: NsfwMode; // NSFW 处理："off" 不过滤 | "blur" 仅模糊封面 | "hide" 隐藏条目
-	};
-
-	// MyAnimeList 配置
-	mal?: {
-		username?: string; // MyAnimeList 用户名，列表需为公开状态
-		clientId?: string; // MyAnimeList Client ID，从 https://myanimelist.net/apiconfig 注册免费应用后获取
-		apiUrl?: string; // MAL API 地址
-		animeBaseUrl?: string; // 动画条目详情页地址，末尾需要带 /
-		mangaBaseUrl?: string; // 漫画条目详情页地址，末尾需要带 /
-		nsfw?: NsfwMode; // NSFW 处理："off" 不过滤 | "blur" 仅模糊封面 | "hide" 隐藏条目
-	};
-
-	// Bilibili 配置
-	bilibili?: {
-		uid?: string; // Bilibili 用户 UID
 	};
 
 	// 分页配置
@@ -238,7 +202,7 @@ export type SiteConfig = {
 		/**
 		 * 为特定域名的图片添加 referrerpolicy="no-referrer" 属性
 		 * 开启后可解决指定域名图片加载时的 403 问题（如防盗链图片）
-		 * 示例：["i0.hdslb.com", "*.bilibili.com"] 支持通配符 *
+		 * 示例：["*.vndb.org"] 支持通配符 *
 		 * 仅影响匹配域名的图片标签，不影响其他链接的 referrer 行为
 		 */
 		noReferrerDomains?: string[];

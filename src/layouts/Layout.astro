@@ -46,7 +46,6 @@ import "@rehype-callouts-theme";
 interface Props {
 	title?: string;
 	description?: string;
-	lang?: string;
 	setOGTypeArticle?: boolean;
 	postCoverImage?: string;
 	ogImageWidth?: number;
@@ -58,7 +57,6 @@ interface Props {
 let {
 	title,
 	description,
-	lang,
 	setOGTypeArticle,
 	postCoverImage,
 	ogImageWidth: propsOgImageWidth,
@@ -112,11 +110,8 @@ const favicons: Favicon[] =
 const appleTouchIcon =
 	favicons.find((f) => f.src.toLowerCase().endsWith(".png")) ?? favicons[0];
 
-// const siteLang = siteConfig.lang.replace('_', '-')
-if (!lang) {
-	lang = `${siteConfig.lang}`;
-}
-const siteLang = lang.replace("_", "-");
+// 站点仅使用简体中文
+const siteLang = "zh-CN";
 
 // 首页站点级结构化数据用的作者头像 URL（Person.image），经 toAbsoluteImageUrl 三分解析
 const avatarUrl = await getAuthorAvatarUrl();
@@ -195,7 +190,7 @@ const ogImageAlt = propsOgImageAlt ?? pageTitle;
 
     <link rel="canonical" href={canonicalUrl} />
     <meta property="og:site_name" content={siteConfig.title} />
-    <meta property="og:locale" content={getOgLocale(lang)} />
+    <meta property="og:locale" content={getOgLocale()} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:title" content={pageTitle} />
     <meta

@@ -28,7 +28,6 @@ import "@/styles/expressive-code.css";
 interface Props {
 	title?: string;
 	description?: string;
-	lang?: string;
 	setOGTypeArticle?: boolean;
 	postSlug?: string;
 	postCoverImage?: string;
@@ -54,7 +53,6 @@ const backgroundImages = getBackgroundImages();
 const {
 	title,
 	description,
-	lang,
 	setOGTypeArticle,
 	postSlug,
 	postCoverImage,
@@ -93,7 +91,7 @@ const {
 } = sidebar;
 ---
 
-<Layout title={title} description={description} lang={lang} setOGTypeArticle={setOGTypeArticle} postCoverImage={postCoverImage} ogImageWidth={ogImageWidth} ogImageHeight={ogImageHeight} ogImageAlt={ogImageAlt} hasWallpaper={hasWallpaper}>
+<Layout title={title} description={description} setOGTypeArticle={setOGTypeArticle} postCoverImage={postCoverImage} ogImageWidth={ogImageWidth} ogImageHeight={ogImageHeight} ogImageAlt={ogImageAlt} hasWallpaper={hasWallpaper}>
 
 <slot slot="head" name="head" />
 <HeaderTopRow navbarMode={navbarMode} navbarWidthFull={navbarWidthFull} />
