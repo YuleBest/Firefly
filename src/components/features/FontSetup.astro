@@ -8,7 +8,7 @@ import { fontConfig } from "@/config";
 
 // 代码字体的系统保底栈，保证行内代码/代码块始终是等宽字体
 const MONO_FONT_STACK =
-	'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace';
+	'"JetBrains Maple Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace';
 const codeFontVar = fontConfig.codeFont;
 const codeFontFamily = codeFontVar
 	? `var(${codeFontVar}, ${MONO_FONT_STACK})`
