@@ -59,17 +59,16 @@
     @apply bg-(--inline-code-bg) text-(--inline-code-color) px-1 py-0.5 rounded-md overflow-hidden;
 
     /* 行内代码走 fontConfig.codeFont（--font-code 由 FontSetup.astro 输出），带等宽保底 */
-    font-family: var(
-      --font-code,
-      ui-monospace,
-      SFMono-Regular,
-      Menlo,
-      Monaco,
-      Consolas,
-      "Liberation Mono",
-      "Courier New",
-      monospace
-    );
+    font-family: var(--font-code,
+        ui-monospace,
+        "JetBrains Maple Mono",
+        SFMono-Regular,
+        Menlo,
+        Monaco,
+        Consolas,
+        "Liberation Mono",
+        "Courier New",
+        monospace);
 
     &:before {
       content: none;
@@ -137,19 +136,19 @@
 
   .image-grid {
     @apply items-stretch;
-    
+
     center {
       @apply h-full w-full;
-      
+
       figure {
         @apply flex flex-col h-full w-full m-0 p-0;
-        
+
         img {
           @apply object-cover w-full grow rounded-xl m-0;
           /* 使图片自动填满所在网格高度（自适应裁剪居中，不拉伸变形） */
           height: 100%;
         }
-        
+
         figcaption {
           @apply mt-2 mb-0;
         }
@@ -175,7 +174,7 @@
     border-radius: calc(var(--radius-large) - 0.5rem);
   }
 
-  .horizontal-scroll-container > table {
+  .horizontal-scroll-container>table {
     @apply my-0;
   }
 
@@ -221,4 +220,3 @@ body.wallpaper-transparent .custom-md {
     background-color: color-mix(in oklch, var(--btn-plain-bg-active) 68%, transparent);
   }
 }
-

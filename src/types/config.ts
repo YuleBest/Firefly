@@ -26,7 +26,6 @@ export type { FriendLink, FriendsPageConfig } from "./friendsConfig";
 export type { GalleryAlbum, GalleryConfig } from "./galleryConfig";
 export type { LicenseConfig } from "./licenseConfig";
 export type { MermaidConfig } from "./mermaidConfig";
-export type { MusicPlayerConfig } from "./musicConfig";
 export type {
 	NavBarConfig,
 	NavBarLink,

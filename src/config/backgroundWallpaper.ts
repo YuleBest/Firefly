@@ -4,7 +4,7 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 	// 壁纸模式："banner" 横幅壁纸，"fullscreen" 全屏壁纸，"overlay" 覆盖透明，"none" 纯色背景无壁纸
 	mode: "banner",
 	// 是否启用背景视频播放，配置后将在导航栏显示视频播放按钮
-	playerEnable: true,
+	playerEnable: false,
 	/**
 	 * 背景图片配置
 	 * 图片路径支持三种格式：
@@ -73,7 +73,7 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 			// 是否启用主页横幅文字
 			enable: true,
 			// 主页横幅主标题
-			title: "Lovely firefly!",
+			title: "于乐的早安电台",
 			// 主页横幅主标题字体大小
 			titleSize: "4.5rem",
 			// 主页横幅副标题
@@ -107,18 +107,13 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 				{
 					name: "GitHub",
 					icon: "fa7-brands:github",
-					url: "https://github.com/CuteLeaf/Firefly",
+					url: "https://github.com/YuleBest",
 					showName: true,
 				},
 				{
 					name: "Email",
 					icon: "fa7-solid:envelope",
-					url: "mailto:xiaye@msn.com",
-				},
-				{
-					name: "Sponsor",
-					icon: "material-symbols:favorite",
-					url: "https://blog.cuteleaf.cn/sponsor/",
+					url: "mailto:chat@yule.best",
 				},
 				{
 					name: "RSS",
@@ -140,9 +135,9 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 		waves: {
 			enable: {
 				// 桌面端是否启用水波纹动画效果
-				desktop: true,
+				desktop: false,
 				// 移动端是否启用水波纹动画效果
-				mobile: true,
+				mobile: false,
 			},
 		},
 		// 渐变过渡效果配置，当水波纹关闭时自动启用，提供壁纸底部到背景色的平滑过渡

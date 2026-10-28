@@ -1,0 +1,68 @@
+{
+  // Tailwind CSS IntelliSense 只提供补全/诊断，不提供 formatter，不能设为 defaultFormatter。
+  // VSCode 内置 CSS formatter 会把 `transition!` 格式化成 `transition !`，
+  // 导致 Tailwind v4 的 @apply 报 unknown utility class `!`，因此关闭 CSS 系自动格式化。
+  "css.format.enable": false,
+  "scss.format.enable": false,
+  "less.format.enable": false,
+  "[css]": {
+    "editor.formatOnSave": false
+  },
+  "[scss]": {
+    "editor.formatOnSave": false
+  },
+  "[less]": {
+    "editor.formatOnSave": false
+  },
+  // 避免 @apply / @theme / @reference 等 Tailwind 指令被标成未知 at-rule
+  "css.lint.unknownAtRules": "ignore",
+
+  // 项目使用 Biome 格式化 JS/TS/JSON/Astro/Svelte
+  "[javascript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[astro]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[svelte]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.biome": "explicit",
+    "source.organizeImports.biome": "explicit"
+  },
+
+  // Tailwind v4 使用 CSS-first 配置
+  "tailwindCSS.experimental.configFile": "src/styles/main.css",
+
+  // 与 biome.json 的 indentStyle: "tab" 保持一致
+  "editor.insertSpaces": false,
+  "editor.tabSize": 4,
+
+  // 减少项目内搜索/文件监听的噪音
+  "search.exclude": {
+    "**/dist": true,
+    "**/node_modules": true,
+    "**/.astro": true
+  },
+  "files.watcherExclude": {
+    "**/dist/**": true,
+    "**/node_modules/**": true,
+    "**/.astro/**": true
+  }
+}
