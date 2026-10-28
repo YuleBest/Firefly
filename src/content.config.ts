@@ -1,7 +1,7 @@
-import { defineCollection } from "astro:content";
 import type { CollectionConfig } from "astro/content/config";
 import { glob } from "astro/loaders";
 import { type ZodType, z } from "astro/zod";
+import { defineCollection } from "astro:content";
 
 type PostData = {
 	title: string;

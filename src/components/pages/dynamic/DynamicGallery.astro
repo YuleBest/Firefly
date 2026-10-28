@@ -1,5 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
+
 import I18nKey from "@/i18n/i18nKey";
 import { i18n } from "@/i18n/translation";
 
@@ -21,7 +22,11 @@ const { sourceId } = Astro.props;
 
 	<div class="page-gallery-viewer" data-gallery-viewer hidden>
 		<div class="page-gallery-toolbar">
-			<button type="button" class="btn-plain page-gallery-action" data-gallery-collapse>
+			<button
+				type="button"
+				class="btn-plain page-gallery-action"
+				data-gallery-collapse
+			>
 				<Icon name="material-symbols:close-fullscreen-rounded" />
 				<span>{i18n(I18nKey.dynamicCollapseGallery)}</span>
 			</button>
@@ -35,7 +40,11 @@ const { sourceId } = Astro.props;
 				<Icon name="material-symbols:zoom-in-rounded" />
 				<span>{i18n(I18nKey.dynamicViewOriginal)}</span>
 			</button>
-			<span class="page-gallery-counter" data-gallery-counter aria-live="polite"></span>
+			<span
+				class="page-gallery-counter"
+				data-gallery-counter
+				aria-live="polite"
+			></span>
 		</div>
 
 		<div class="page-gallery-stage">

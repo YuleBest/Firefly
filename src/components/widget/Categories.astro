@@ -24,16 +24,22 @@ const isCollapsed = collapseThreshold
 	: false;
 ---
 
-<WidgetLayout name={i18n(I18nKey.categories)} showTitle={showTitle} id="categories" isCollapsed={isCollapsed} collapsedHeight={COLLAPSED_HEIGHT}
-                class={className} style={style}
+<WidgetLayout
+	name={i18n(I18nKey.categories)}
+	showTitle={showTitle}
+	id="categories"
+	isCollapsed={isCollapsed}
+	collapsedHeight={COLLAPSED_HEIGHT}
+	class={className}
+	style={style}
 >
-    {categories.map((c) =>
-        <ButtonLink
-            url={c.url}
-            badge={String(c.count)}
-            label={`View all posts in the ${c.name.trim()} category`}
-        >
-            {c.name.trim()}
-        </ButtonLink>
-    )}
+	{categories.map((c) => (
+		<ButtonLink
+			url={c.url}
+			badge={String(c.count)}
+			label={`View all posts in the ${c.name.trim()} category`}
+		>
+			{c.name.trim()}
+		</ButtonLink>
+	))}
 </WidgetLayout>

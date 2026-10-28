@@ -1,5 +1,6 @@
 import { h } from "hastscript";
 import { visit } from "unist-util-visit";
+
 import plantumlThemeScript from "./plantuml-theme-switch.js?raw";
 import {
 	DIAGRAM_CONTAINER,

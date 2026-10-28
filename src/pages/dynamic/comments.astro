@@ -2,6 +2,7 @@
 import Comment from "@/components/comment/index.astro";
 import { commentConfig, dynamicConfig, siteConfig } from "@/config";
 import Layout from "@/layouts/Layout.astro";
+
 import "@/styles/pages/dynamic-comments.css";
 
 if (
@@ -44,4 +45,3 @@ if (
 	new ResizeObserver(reportHeight).observe(document.body);
 	window.addEventListener("load", reportHeight);
 </script>
-

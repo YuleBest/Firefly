@@ -33,6 +33,7 @@ Firefly 项目中所有可复用组件的集中管理。组件按照功能和职
 页面导航和用户交互功能组件。
 
 **导航控件**
+
 - `BackToComment.astro` - 返回评论区按钮
 - `BackToHome.astro` - 返回主页按钮
 - `BackToTop.astro` - 返回顶部按钮
@@ -42,6 +43,7 @@ Firefly 项目中所有可复用组件的集中管理。组件按照功能和职
 - `ArchivePanel.astro` - 归档面板组件（服务端渲染 + 客户端筛选/折叠）
 
 **交互组件**
+
 - `DisplaySettings.svelte` - 显示设置组件
 - `DisplaySettingsIntegrated.svelte` - 集成显示设置组件
 - `LayoutSwitchButton.svelte` - 布局切换按钮
@@ -54,6 +56,7 @@ Firefly 项目中所有可复用组件的集中管理。组件按照功能和职
 通用的 UI 组件和工具组件，支持跨项目复用。
 
 **基础 UI 组件**
+
 - `ButtonLink.astro` - 链接按钮
 - `ButtonTag.astro` - 标签按钮
 - `DropdownItem.astro` / `.svelte` - 下拉选项
@@ -63,18 +66,21 @@ Firefly 项目中所有可复用组件的集中管理。组件按照功能和职
 - `WidgetLayout.astro` - 小部件布局容器
 
 **内容和展示组件**
+
 - `CoverImage.astro` - 封面图组件（支持本地图片和随机图API）
 - `ImageWrapper.astro` - 图片包装器（支持本地和远程图片）
 - `Markdown.astro` - Markdown 内容样式包装器
 - `PioMessageBox.astro` - 消息框组件（Live2D/Spine 消息显示）
 - `Timeline.astro` / `TimelineItem.astro` - MDX 时间线组件（左侧竖线节点，条目支持日期/标题/正文 Markdown、节点换色和内置图标）
-- `Steps.astro` / `StepItem.astro` / `Badge.astro`  - MDX 内容组件（编号步骤条、内联徽章）
+- `Steps.astro` / `StepItem.astro` / `Badge.astro` - MDX 内容组件（编号步骤条、内联徽章）
 
 **分页组件**
+
 - `ClientPagination.svelte` - 客户端分页（JavaScript 控制）
 - `Pagination.astro` - 静态路由分页（Astro 原生）
 
 **列表与筛选组件**
+
 - `FilterControls.svelte` - 筛选控制组件（胶囊筛选按钮，VNDB 页面使用）
 - `TabNav.svelte` - 标签导航组件（支持 URL hash 深链，VNDB 页面使用）
 - `GridSkeleton.svelte` - 媒体网格加载骨架
@@ -99,11 +105,13 @@ Firefly 项目中所有可复用组件的集中管理。组件按照功能和职
 全局加载的功能增强和特效组件。
 
 **管理器（初始化和管理功能）**
+
 - `FancyboxManager.astro` - Fancybox 图片查看器管理
-- `FontSetup.astro` - 字体加载和管理（基于 Astro Font API）
+- `FontSetup.astro` - 输出代码块使用的系统等宽字体 CSS 变量
 - `KatexManager.astro` - Katex 数学公式渲染管理
 
 **功能组件**
+
 - `EncryptedContent.astro` - 加密内容组件
 - `EncryptedPost.astro` - 加密文章组件
 - `Live2DWidget.astro` - Live2D 看板娘组件
@@ -116,6 +124,7 @@ Firefly 项目中所有可复用组件的集中管理。组件按照功能和职
 特定页面使用的组件，不用于其他页面。
 
 **pages/gallery/** - 相册页面组件
+
 - `AlbumCard.astro` - 相册卡片组件
 - `PhotoCard.astro` - 照片卡片组件
 
@@ -151,14 +160,14 @@ Firefly 项目中所有可复用组件的集中管理。组件按照功能和职
 
 ## 🗂️ 分类原则
 
-| 分类 | 用途 | 特点 |
-|------|------|------|
-| **layout/** | 页面布局和结构 | 决定整体页面框架 |
-| **controls/** | 导航和交互 | 用户交互功能 |
-| **common/** | 通用可复用组件 | 跨多个页面/组件使用 |
-| **widget/** | 侧边栏小部件 | 侧边栏特定组件 |
-| **features/** | 全局功能特效 | 全局加载的增强功能 |
-| **pages/** | 页面特定组件 | 仅在特定页面使用 |
-| **comment/** | 评论系统 | 第三方服务集成 |
-| **analytics/** | 数据统计 | 分析和统计服务 |
-| **misc/** | 工具和辅助 | 其他杂项功能 |
+| 分类           | 用途           | 特点                |
+| -------------- | -------------- | ------------------- |
+| **layout/**    | 页面布局和结构 | 决定整体页面框架    |
+| **controls/**  | 导航和交互     | 用户交互功能        |
+| **common/**    | 通用可复用组件 | 跨多个页面/组件使用 |
+| **widget/**    | 侧边栏小部件   | 侧边栏特定组件      |
+| **features/**  | 全局功能特效   | 全局加载的增强功能  |
+| **pages/**     | 页面特定组件   | 仅在特定页面使用    |
+| **comment/**   | 评论系统       | 第三方服务集成      |
+| **analytics/** | 数据统计       | 分析和统计服务      |
+| **misc/**      | 工具和辅助     | 其他杂项功能        |

@@ -1,7 +1,4 @@
-import {
-	type NavBarConfig,
-	type NavBarLink,
-} from "../types/navBarConfig";
+import { type NavBarConfig, type NavBarLink } from "../types/navBarConfig";
 
 // ============================================================================
 // 导航栏配置 - 根据顺序动态生成导航栏链接

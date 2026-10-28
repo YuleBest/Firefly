@@ -59,16 +59,18 @@
     @apply bg-(--inline-code-bg) text-(--inline-code-color) px-1 py-0.5 rounded-md overflow-hidden;
 
     /* 行内代码走 fontConfig.codeFont（--font-code 由 FontSetup.astro 输出），带等宽保底 */
-    font-family: var(--font-code,
-        ui-monospace,
-        "JetBrains Maple Mono",
-        SFMono-Regular,
-        Menlo,
-        Monaco,
-        Consolas,
-        "Liberation Mono",
-        "Courier New",
-        monospace);
+    font-family: var(
+      --font-code,
+      ui-monospace,
+      "JetBrains Maple Mono",
+      SFMono-Regular,
+      Menlo,
+      Monaco,
+      Consolas,
+      "Liberation Mono",
+      "Courier New",
+      monospace
+    );
 
     &:before {
       content: none;
@@ -157,7 +159,6 @@
   }
 }
 
-
 .custom-md {
   table {
     @apply my-4;
@@ -174,7 +175,7 @@
     border-radius: calc(var(--radius-large) - 0.5rem);
   }
 
-  .horizontal-scroll-container>table {
+  .horizontal-scroll-container > table {
     @apply my-0;
   }
 
@@ -209,14 +210,26 @@ body.wallpaper-transparent .custom-md {
   }
 
   th {
-    background-color: color-mix(in oklch, var(--btn-regular-bg) 72%, transparent);
+    background-color: color-mix(
+      in oklch,
+      var(--btn-regular-bg) 72%,
+      transparent
+    );
   }
 
   td {
-    background-color: color-mix(in oklch, var(--card-bg-transparent) 92%, transparent);
+    background-color: color-mix(
+      in oklch,
+      var(--card-bg-transparent) 92%,
+      transparent
+    );
   }
 
   tr:nth-child(even) td {
-    background-color: color-mix(in oklch, var(--btn-plain-bg-active) 68%, transparent);
+    background-color: color-mix(
+      in oklch,
+      var(--btn-plain-bg-active) 68%,
+      transparent
+    );
   }
 }

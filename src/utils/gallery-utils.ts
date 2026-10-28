@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+
 import type { GalleryAlbum } from "@/types/config";
 import { url } from "@/utils/url-utils";
 

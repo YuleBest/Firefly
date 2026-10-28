@@ -259,7 +259,7 @@ All commands need to be executed in the project root directory:
 | `pnpm build`               | Build site to `./dist/`                             |
 | `pnpm preview`             | Preview built site locally                          |
 | `pnpm check`               | Check for errors in code                            |
-| `pnpm format`              | Format your code using Biome                        |
+| `pnpm format`              | Format your code using Oxfmt                        |
 | `pnpm new-post <filename>` | Create new article                                  |
 | `pnpm new-d <content>`     | Create a new moment                                 |
 | `pnpm new-dynamic <content>` | Create a new moment (full command)                |

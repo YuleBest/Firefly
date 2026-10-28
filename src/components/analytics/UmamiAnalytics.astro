@@ -39,50 +39,44 @@ const replaysBlockSelector = replays?.blockSelector?.trim();
 	data-performance={collectWebVitals ? "true" : undefined}
 ></script>
 
-{
-	replaysEnabled && (
-		<script
-			is:inline
-			data-swup-ignore-script
-			defer
-			src={replaysScriptUrl}
-			data-website-id={websiteId}
-			data-sample-rate={String(replaysSampleRate)}
-			data-mask-level={replaysMaskLevel}
-			data-max-duration={String(replaysMaxDuration)}
-			data-block-selector={replaysBlockSelector || undefined}
-		/>
-	)
-}
+{replaysEnabled && (
+	<script
+		is:inline
+		data-swup-ignore-script
+		defer
+		src={replaysScriptUrl}
+		data-website-id={websiteId}
+		data-sample-rate={String(replaysSampleRate)}
+		data-mask-level={replaysMaskLevel}
+		data-max-duration={String(replaysMaxDuration)}
+		data-block-selector={replaysBlockSelector || undefined}
+	/>
+)}
 
-{
-	trackOutboundLinks && (
-		<script is:inline data-swup-ignore-script>
-			;(() => {
-				const name = 'outbound-link-click'
+{trackOutboundLinks && <script is:inline data-swup-ignore-script>
+	(() => {
+		const name = "outbound-link-click";
 
-				const applyOutboundTracking = () => {
-					document.querySelectorAll('a').forEach((a) => {
-						if (
-							a.host !== window.location.host &&
-							!a.getAttribute('data-umami-event')
-						) {
-							a.setAttribute('data-umami-event', name)
-							a.setAttribute('data-umami-event-url', a.href)
-						}
-					})
+		const applyOutboundTracking = () => {
+			document.querySelectorAll("a").forEach((a) => {
+				if (
+					a.host !== window.location.host &&
+					!a.getAttribute("data-umami-event")
+				) {
+					a.setAttribute("data-umami-event", name);
+					a.setAttribute("data-umami-event-url", a.href);
 				}
+			});
+		};
 
-				if (document.readyState === 'loading') {
-					document.addEventListener('DOMContentLoaded', applyOutboundTracking, {
-						once: true,
-					})
-				} else {
-					applyOutboundTracking()
-				}
+		if (document.readyState === "loading") {
+			document.addEventListener("DOMContentLoaded", applyOutboundTracking, {
+				once: true,
+			});
+		} else {
+			applyOutboundTracking();
+		}
 
-				document.addEventListener('astro:page-load', applyOutboundTracking)
-			})()
-		</script>
-	)
-}
+		document.addEventListener("astro:page-load", applyOutboundTracking);
+	})();
+</script>}

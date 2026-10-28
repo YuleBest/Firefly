@@ -89,18 +89,27 @@ const remoteReferrerPolicy =
 	data-natural-height={naturalHeight ? "true" : undefined}
 >
 	<!-- LQIP 渐变占位 -->
-	<div class="lqip-placeholder absolute inset-0 pointer-events-none" style={lqipProps.style} aria-hidden="true"></div>
+	<div
+		class="lqip-placeholder absolute inset-0 pointer-events-none"
+		style={lqipProps.style}
+		aria-hidden="true"
+	></div>
 
 	<!-- 加载动画 -->
 	{showLoading && (
-		<div class="loading-spinner absolute inset-0 flex items-center justify-center z-10" style="background-color: var(--card-bg);">
+		<div
+			class="loading-spinner absolute inset-0 flex items-center justify-center z-10"
+			style="background-color: var(--card-bg);"
+		>
 			<div class="spinner"></div>
 		</div>
 	)}
 
 	<!-- 错误提示 -->
 	<div class="error-message absolute inset-0 items-center justify-center z-20 hidden pointer-events-none">
-		<span class="text-white text-sm px-3 py-1 rounded-sm bg-black/50">Image API Error</span>
+		<span class="text-white text-sm px-3 py-1 rounded-sm bg-black/50">
+			Image API Error
+		</span>
 	</div>
 
 	<!-- 本地图片 -->
@@ -212,42 +221,50 @@ const remoteReferrerPolicy =
 
 <script>
 	function initCoverImages() {
-		const containers = document.querySelectorAll('.cover-image-container');
+		const containers = document.querySelectorAll(".cover-image-container");
 		containers.forEach((container) => {
-			if (container.hasAttribute('data-initialized')) return;
-			container.setAttribute('data-initialized', 'true');
+			if (container.hasAttribute("data-initialized")) return;
+			container.setAttribute("data-initialized", "true");
 
-			const img = container.querySelector('img[data-cover-img]') as HTMLImageElement | null;
+			const img = container.querySelector(
+				"img[data-cover-img]",
+			) as HTMLImageElement | null;
 			if (!img) return;
 
 			// 解析API URL列表，用于按顺序重试
 			let apiUrls: string[] = [];
 			let currentApiIndex = 1; // 0号已由服务端设为img.src
-			const apiUrlsAttr = container.getAttribute('data-api-urls');
+			const apiUrlsAttr = container.getAttribute("data-api-urls");
 			if (apiUrlsAttr) {
-				try { apiUrls = JSON.parse(apiUrlsAttr); } catch (_e) { /* ignore */ }
+				try {
+					apiUrls = JSON.parse(apiUrlsAttr);
+				} catch (_e) {
+					/* ignore */
+				}
 			}
 
 			const hideLoading = () => {
-				container.setAttribute('data-loading', 'false');
-				img.style.opacity = '1';
-				const placeholder = container.querySelector('.lqip-placeholder') as HTMLElement | null;
-				if (placeholder) placeholder.classList.add('loaded');
+				container.setAttribute("data-loading", "false");
+				img.style.opacity = "1";
+				const placeholder = container.querySelector(
+					".lqip-placeholder",
+				) as HTMLElement | null;
+				if (placeholder) placeholder.classList.add("loaded");
 			};
 
 			const showError = () => {
-				container.setAttribute('data-loading', 'false');
-				container.setAttribute('data-error', 'true');
+				container.setAttribute("data-loading", "false");
+				container.setAttribute("data-error", "true");
 			};
 
 			// 统一的错误处理：尝试下一个API或显示错误提示
 			const onError = () => {
-				if (img.dataset.remote !== 'true') return;
+				if (img.dataset.remote !== "true") return;
 
 				if (currentApiIndex < apiUrls.length) {
 					// 先绑定好事件，再更换src
-					img.addEventListener('load', hideLoading, { once: true });
-					img.addEventListener('error', onError, { once: true });
+					img.addEventListener("load", hideLoading, { once: true });
+					img.addEventListener("error", onError, { once: true });
 					img.src = apiUrls[currentApiIndex];
 					currentApiIndex++;
 				} else {
@@ -262,8 +279,8 @@ const remoteReferrerPolicy =
 					onError();
 				}
 			} else {
-				img.addEventListener('load', hideLoading, { once: true });
-				img.addEventListener('error', onError, { once: true });
+				img.addEventListener("load", hideLoading, { once: true });
+				img.addEventListener("error", onError, { once: true });
 			}
 		});
 	}
@@ -272,6 +289,6 @@ const remoteReferrerPolicy =
 	if (!window.__coverImageInit) {
 		window.__coverImageInit = true;
 		initCoverImages();
-		document.addEventListener('astro:page-load', initCoverImages);
+		document.addEventListener("astro:page-load", initCoverImages);
 	}
 </script>

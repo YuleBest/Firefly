@@ -1,7 +1,9 @@
 import { getSortedPosts } from "@utils/content-utils";
 import { buildAtomFeed, renderFeedEntries } from "@utils/feed-utils";
 import type { APIContext } from "astro";
+
 import { profileConfig, siteConfig } from "@/config";
+
 import pkg from "../../package.json";
 
 export const prerender = true;

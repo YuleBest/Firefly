@@ -1,5 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
+
 import I18nKey from "@/i18n/i18nKey";
 import { i18n } from "@/i18n/translation";
 import { formatDateToYYYYMMDD } from "@/utils/date-utils";
@@ -37,46 +38,56 @@ const iconClass = "text-sm";
 ---
 
 <div class:list={["flex flex-wrap items-center gap-2", className]}>
-  {hasPublished && (
-    <div class="flex items-center">
-      {showIcons && (
-        <div class={iconWrapperClass}>
-          <Icon name="material-symbols:calendar-today-outline-rounded" class={iconClass} />
-        </div>
-      )}
-      <span class={textClass}>
-        {!showIcons && `${i18n(I18nKey.publishedAt)} `}{formatDateToYYYYMMDD(published)}
-      </span>
-    </div>
-  )}
+	{hasPublished && (
+		<div class="flex items-center">
+			{showIcons && (
+				<div class={iconWrapperClass}>
+					<Icon
+						name="material-symbols:calendar-today-outline-rounded"
+						class={iconClass}
+					/>
+				</div>
+			)}
+			<span class={textClass}>
+				{!showIcons && `${i18n(I18nKey.publishedAt)} `}
+				{formatDateToYYYYMMDD(published)}
+			</span>
+		</div>
+	)}
 
-  {hasPublished && hasWords && <span class={dividerClass}>|</span>}
+	{hasPublished && hasWords && <span class={dividerClass}>|</span>}
 
-  {hasWords && (
-    <div class="flex items-center">
-      {showIcons && (
-        <div class={iconWrapperClass}>
-          <Icon name="material-symbols:notes-rounded" class={iconClass} />
-        </div>
-      )}
-      <span class={textClass}>
-        {words} {i18n(words === 1 ? I18nKey.wordCount : I18nKey.wordsCount)}
-      </span>
-    </div>
-  )}
+	{hasWords && (
+		<div class="flex items-center">
+			{showIcons && (
+				<div class={iconWrapperClass}>
+					<Icon name="material-symbols:notes-rounded" class={iconClass} />
+				</div>
+			)}
+			<span class={textClass}>
+				{words} {i18n(words === 1 ? I18nKey.wordCount : I18nKey.wordsCount)}
+			</span>
+		</div>
+	)}
 
-  {(hasPublished || hasWords) && hasMinutes && <span class={dividerClass}>|</span>}
+	{(hasPublished || hasWords) && hasMinutes && (
+		<span class={dividerClass}>|</span>
+	)}
 
-  {hasMinutes && (
-    <div class="flex items-center">
-      {showIcons && (
-        <div class={iconWrapperClass}>
-          <Icon name="material-symbols:schedule-outline-rounded" class={iconClass} />
-        </div>
-      )}
-      <span class={textClass}>
-        {minutes} {i18n(minutes === 1 ? I18nKey.minuteCount : I18nKey.minutesCount)}
-      </span>
-    </div>
-  )}
+	{hasMinutes && (
+		<div class="flex items-center">
+			{showIcons && (
+				<div class={iconWrapperClass}>
+					<Icon
+						name="material-symbols:schedule-outline-rounded"
+						class={iconClass}
+					/>
+				</div>
+			)}
+			<span class={textClass}>
+				{minutes}{" "}
+				{i18n(minutes === 1 ? I18nKey.minuteCount : I18nKey.minutesCount)}
+			</span>
+		</div>
+	)}
 </div>

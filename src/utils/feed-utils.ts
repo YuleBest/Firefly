@@ -1,12 +1,12 @@
-import { loadRenderers } from "astro:container";
-import type { CollectionEntry } from "astro:content";
-import { render } from "astro:content";
 import { getContainerRenderer as getMDXRenderer } from "@astrojs/mdx/container-renderer";
 import { getContainerRenderer as getSvelteRenderer } from "@astrojs/svelte/container-renderer";
 import I18nKey from "@i18n/i18nKey";
 import { i18n } from "@i18n/translation";
 import { url } from "@utils/url-utils";
 import { experimental_AstroContainer as AstroContainer } from "astro/container";
+import { loadRenderers } from "astro:container";
+import type { CollectionEntry } from "astro:content";
+import { render } from "astro:content";
 import sanitizeHtml from "sanitize-html";
 
 /**
@@ -30,7 +30,7 @@ export type FeedEntry = {
  */
 export function stripInvalidXmlChars(str: string): string {
 	return str.replace(
-		// biome-ignore lint/suspicious/noControlCharactersInRegex: https://www.w3.org/TR/xml/#charsets
+		// XML 1.0 非法字符，见 https://www.w3.org/TR/xml/#charsets
 		/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F-\x9F\uFDD0-\uFDEF\uFFFE\uFFFF]/g,
 		"",
 	);

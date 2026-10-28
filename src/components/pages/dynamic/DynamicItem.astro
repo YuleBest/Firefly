@@ -1,6 +1,7 @@
 ---
-import { type CollectionEntry, render } from "astro:content";
 import { Icon } from "astro-icon/components";
+import { type CollectionEntry, render } from "astro:content";
+
 import ImageWrapper from "@/components/common/ImageWrapper.astro";
 import DynamicGallery from "@/components/pages/dynamic/DynamicGallery.astro";
 import DynamicInlineComments from "@/components/pages/dynamic/DynamicInlineComments.astro";
@@ -48,11 +49,7 @@ const profileUrl = url(dynamicConfig.profileUrl || "/about/");
 >
 	<article aria-labelledby={`${anchorId}-author`}>
 		<header class="page-entry-header">
-			<a
-				href={profileUrl}
-				class="page-avatar"
-				aria-label={profileLabel}
-			>
+			<a href={profileUrl} class="page-avatar" aria-label={profileLabel}>
 				<ImageWrapper
 					src={profileConfig.avatar || ""}
 					alt={profileConfig.name}

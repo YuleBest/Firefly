@@ -1,6 +1,8 @@
 import { getImage } from "astro:assets";
+
 import I18nKey from "@/i18n/i18nKey";
 import { i18n } from "@/i18n/translation";
+
 import { siteConfig } from "../config/siteConfig";
 import { loadLocalImage } from "./schema-image";
 import { getFileDirFromPath, url } from "./url-utils";

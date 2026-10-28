@@ -9,11 +9,11 @@ declare global {
 	}
 
 	interface Window {
-		// biome-ignore lint/suspicious/noExplicitAny: External library
+		// External library
 		swup: any;
 		spineModelInitialized?: boolean;
 		floatingTOCListenersInitialized?: boolean;
-		// biome-ignore lint/suspicious/noExplicitAny: External library
+		// External library
 		spinePlayerInstance?: any;
 		/** 樱花特效管理器,Worker 模式与主线程回退模式均实现该接口 */
 		sakuraManager?: SakuraManagerLike;

@@ -100,8 +100,7 @@ function serializeMenus(menus: Props["config"]["menus"]) {
 	data-menus={JSON.stringify(serializeMenus(config.menus))}
 	data-tips={JSON.stringify(config.tips || {})}
 	data-responsive={JSON.stringify(config.responsive || {})}
->
-</div>
+></div>
 
 <script>
 	import { createWidget } from "l2d-widget";
@@ -120,7 +119,7 @@ function serializeMenus(menus: Props["config"]["menus"]) {
 			for (const node of m.addedNodes) {
 				if (node instanceof HTMLElement) {
 					if (node.style.whiteSpace === "nowrap") patchTipBubble(node);
-					node.querySelectorAll<HTMLElement>('*').forEach(patchTipBubble);
+					node.querySelectorAll<HTMLElement>("*").forEach(patchTipBubble);
 				}
 			}
 		}
@@ -207,18 +206,23 @@ function serializeMenus(menus: Props["config"]["menus"]) {
 
 			// 提示配置
 			if (tips) {
-				const tipsConfig = tips.enable === false ? false : {
-					...(tips.welcomeMessage && { welcomeMessage: tips.welcomeMessage }),
-					...(tips.messages && { messages: tips.messages }),
-					...(tips.duration !== undefined && { duration: tips.duration }),
-					...(tips.interval !== undefined && { interval: tips.interval }),
-					...(tips.offset && { offset: tips.offset }),
-					...(tips.typing && { typing: tips.typing }),
-				};
-				
+				const tipsConfig =
+					tips.enable === false
+						? false
+						: {
+								...(tips.welcomeMessage && {
+									welcomeMessage: tips.welcomeMessage,
+								}),
+								...(tips.messages && { messages: tips.messages }),
+								...(tips.duration !== undefined && { duration: tips.duration }),
+								...(tips.interval !== undefined && { interval: tips.interval }),
+								...(tips.offset && { offset: tips.offset }),
+								...(tips.typing && { typing: tips.typing }),
+							};
+
 				if (tipsConfig === false || Object.keys(tipsConfig).length > 0) {
 					if (Array.isArray(options.model)) {
-						options.model.forEach((m: any) => m.tips = tipsConfig);
+						options.model.forEach((m: any) => (m.tips = tipsConfig));
 					} else {
 						options.model.tips = tipsConfig;
 					}

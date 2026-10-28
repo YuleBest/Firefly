@@ -3,6 +3,7 @@ import { i18n } from "@i18n/translation";
 import { getSortedPosts } from "@utils/content-utils";
 import { url } from "@utils/url-utils";
 import type { APIRoute } from "astro";
+
 import { siteConfig } from "@/config";
 
 export const prerender = true;

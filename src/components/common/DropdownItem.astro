@@ -31,11 +31,6 @@ const allClasses =
 const Tag = href ? "a" : "button";
 ---
 
-<Tag 
-	href={href}
-	target={target}
-	class={allClasses}
-	onclick={onclick}
->
+<Tag href={href} target={target} class={allClasses} onclick={onclick}>
 	<slot />
 </Tag>

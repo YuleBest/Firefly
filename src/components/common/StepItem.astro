@@ -22,7 +22,7 @@ const iconHtml = icon ? ICONS[icon] : undefined;
 
 <li class="step-item" data-type={type}>
 	<span class="step-marker" aria-hidden="true">
-		{iconHtml && <span class="step-marker-icon" set:html={iconHtml}></span>}
+		{iconHtml && <span class="step-marker-icon" set:html={iconHtml} />}
 	</span>
 	<div class="step-content">
 		{title && <div class="step-item-title">{title}</div>}
@@ -50,23 +50,43 @@ const iconHtml = icon ? ICONS[icon] : undefined;
 
 	.step-item[data-type="tip"] {
 		--step-bg: var(--admonitions-color-tip);
-		--step-ring: color-mix(in srgb, var(--admonitions-color-tip) 22%, transparent);
+		--step-ring: color-mix(
+			in srgb,
+			var(--admonitions-color-tip) 22%,
+			transparent
+		);
 	}
 	.step-item[data-type="note"] {
 		--step-bg: var(--admonitions-color-note);
-		--step-ring: color-mix(in srgb, var(--admonitions-color-note) 22%, transparent);
+		--step-ring: color-mix(
+			in srgb,
+			var(--admonitions-color-note) 22%,
+			transparent
+		);
 	}
 	.step-item[data-type="important"] {
 		--step-bg: var(--admonitions-color-important);
-		--step-ring: color-mix(in srgb, var(--admonitions-color-important) 22%, transparent);
+		--step-ring: color-mix(
+			in srgb,
+			var(--admonitions-color-important) 22%,
+			transparent
+		);
 	}
 	.step-item[data-type="warning"] {
 		--step-bg: var(--admonitions-color-warning);
-		--step-ring: color-mix(in srgb, var(--admonitions-color-warning) 22%, transparent);
+		--step-ring: color-mix(
+			in srgb,
+			var(--admonitions-color-warning) 22%,
+			transparent
+		);
 	}
 	.step-item[data-type="caution"] {
 		--step-bg: var(--admonitions-color-caution);
-		--step-ring: color-mix(in srgb, var(--admonitions-color-caution) 22%, transparent);
+		--step-ring: color-mix(
+			in srgb,
+			var(--admonitions-color-caution) 22%,
+			transparent
+		);
 	}
 
 	.step-item:last-child {

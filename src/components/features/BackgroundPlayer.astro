@@ -1,5 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
+
 import I18nKey from "@/i18n/i18nKey";
 import { i18n } from "@/i18n/translation";
 
@@ -19,49 +20,58 @@ const tNext = i18n(I18nKey.videoNext);
 const tLoadError = i18n(I18nKey.videoLoadError);
 ---
 
-{
-	urls.length > 0 && (
-		<div id="bg-player">
-			<div
-				id="bg-player-overlay"
-				class="absolute inset-0 z-15 overflow-hidden pointer-events-none transition-opacity duration-500 ease-in-out opacity-0"
-			>
-				<video id="bg-player-video" preload="auto" playsinline class="size-full object-cover"></video>
-			</div>
-
-			<div id="bg-player-controls" class="absolute bottom-4 left-4 z-30 flex items-center gap-1.5 group">
-				{hasMultiple && (
-					<button
-						id="bg-prev-btn"
-						class="w-11 h-11 flex items-center justify-center rounded-full border border-white/30 bg-black/35 text-white/50 backdrop-blur-sm cursor-pointer transition-all duration-200 opacity-0 scale-90 group-hover:opacity-50 group-hover:scale-100 hover:opacity-80! hover:scale-100!"
-						title={tPrev}
-						aria-label={tPrev}
-					>
-						<Icon name="material-symbols:skip-previous-rounded" class="text-[1rem]" />
-					</button>
-				)}
-
-				{hasMultiple && (
-					<button
-						id="bg-next-btn"
-						class="w-11 h-11 flex items-center justify-center rounded-full border border-white/30 bg-black/35 text-white/50 backdrop-blur-sm cursor-pointer transition-all duration-200 opacity-0 scale-90 group-hover:opacity-50 group-hover:scale-100 hover:opacity-80! hover:scale-100!"
-						title={tNext}
-						aria-label={tNext}
-					>
-						<Icon name="material-symbols:skip-next-rounded" class="text-[1rem]" />
-					</button>
-				)}
-			</div>
-
-			<div
-				id="bg-player-toast"
-				class="fixed bottom-20 left-1/2 -translate-x-1/2 z-100 px-4 py-2 rounded-lg bg-black/70 text-white text-sm backdrop-blur-sm opacity-0 transition-opacity duration-300 pointer-events-none"
-			>
-				{tLoadError}
-			</div>
+{urls.length > 0 && (
+	<div id="bg-player">
+		<div
+			id="bg-player-overlay"
+			class="absolute inset-0 z-15 overflow-hidden pointer-events-none transition-opacity duration-500 ease-in-out opacity-0"
+		>
+			<video
+				id="bg-player-video"
+				preload="auto"
+				playsinline
+				class="size-full object-cover"
+			></video>
 		</div>
-	)
-}
+
+		<div
+			id="bg-player-controls"
+			class="absolute bottom-4 left-4 z-30 flex items-center gap-1.5 group"
+		>
+			{hasMultiple && (
+				<button
+					id="bg-prev-btn"
+					class="w-11 h-11 flex items-center justify-center rounded-full border border-white/30 bg-black/35 text-white/50 backdrop-blur-sm cursor-pointer transition-all duration-200 opacity-0 scale-90 group-hover:opacity-50 group-hover:scale-100 hover:opacity-80! hover:scale-100!"
+					title={tPrev}
+					aria-label={tPrev}
+				>
+					<Icon
+						name="material-symbols:skip-previous-rounded"
+						class="text-[1rem]"
+					/>
+				</button>
+			)}
+
+			{hasMultiple && (
+				<button
+					id="bg-next-btn"
+					class="w-11 h-11 flex items-center justify-center rounded-full border border-white/30 bg-black/35 text-white/50 backdrop-blur-sm cursor-pointer transition-all duration-200 opacity-0 scale-90 group-hover:opacity-50 group-hover:scale-100 hover:opacity-80! hover:scale-100!"
+					title={tNext}
+					aria-label={tNext}
+				>
+					<Icon name="material-symbols:skip-next-rounded" class="text-[1rem]" />
+				</button>
+			)}
+		</div>
+
+		<div
+			id="bg-player-toast"
+			class="fixed bottom-20 left-1/2 -translate-x-1/2 z-100 px-4 py-2 rounded-lg bg-black/70 text-white text-sm backdrop-blur-sm opacity-0 transition-opacity duration-300 pointer-events-none"
+		>
+			{tLoadError}
+		</div>
+	</div>
+)}
 
 <script is:inline define:vars={{ urls: urlsJson, playerMode, hasMultiple }}>
 	(() => {
@@ -101,7 +111,9 @@ const tLoadError = i18n(I18nKey.videoLoadError);
 			if (urlList.length <= 1) return 0;
 			if (playerMode === "random") {
 				var n;
-				do { n = Math.floor(Math.random() * urlList.length); } while (n === except);
+				do {
+					n = Math.floor(Math.random() * urlList.length);
+				} while (n === except);
 				return n;
 			}
 			return (except + 1) % urlList.length;
@@ -115,16 +127,31 @@ const tLoadError = i18n(I18nKey.videoLoadError);
 
 		function syncAttr() {
 			document.body.toggleAttribute("data-bg-video-playing", isPlaying);
-			document.documentElement.toggleAttribute("data-bg-video-playing", isPlaying);
-			window.dispatchEvent(new CustomEvent("bg-player-state-change", { detail: { playing: isPlaying } }));
+			document.documentElement.toggleAttribute(
+				"data-bg-video-playing",
+				isPlaying,
+			);
+			window.dispatchEvent(
+				new CustomEvent("bg-player-state-change", {
+					detail: { playing: isPlaying },
+				}),
+			);
 		}
 
 		function doPlay() {
 			video.src = urlList[currentIndex];
 			video.muted = true;
-			video.play()
-				.then(function () { setTimeout(function () { if (video) video.muted = false; }, 100); })
-				.catch(function () { isPlaying = false; syncAttr(); });
+			video
+				.play()
+				.then(function () {
+					setTimeout(function () {
+						if (video) video.muted = false;
+					}, 100);
+				})
+				.catch(function () {
+					isPlaying = false;
+					syncAttr();
+				});
 		}
 
 		function switchTrack(index) {
@@ -143,11 +170,19 @@ const tLoadError = i18n(I18nKey.videoLoadError);
 			if (isPlaying) {
 				if (currentIndex >= urlList.length) currentIndex = 0;
 				syncAttr();
-				if (overlay) { overlay.classList.remove("opacity-0"); overlay.classList.add("opacity-100"); }
-				requestAnimationFrame(function () { doPlay(); });
+				if (overlay) {
+					overlay.classList.remove("opacity-0");
+					overlay.classList.add("opacity-100");
+				}
+				requestAnimationFrame(function () {
+					doPlay();
+				});
 			} else {
 				video.pause();
-				if (overlay) { overlay.classList.remove("opacity-100"); overlay.classList.add("opacity-0"); }
+				if (overlay) {
+					overlay.classList.remove("opacity-100");
+					overlay.classList.add("opacity-0");
+				}
 				syncAttr();
 			}
 		}
@@ -158,7 +193,10 @@ const tLoadError = i18n(I18nKey.videoLoadError);
 				doPlay();
 			} else {
 				isPlaying = false;
-				if (overlay) { overlay.classList.remove("opacity-100"); overlay.classList.add("opacity-0"); }
+				if (overlay) {
+					overlay.classList.remove("opacity-100");
+					overlay.classList.add("opacity-0");
+				}
 				syncAttr();
 			}
 		}
@@ -173,7 +211,10 @@ const tLoadError = i18n(I18nKey.videoLoadError);
 			} else {
 				// 所有视频都失败或只有单个视频
 				isPlaying = false;
-				if (overlay) { overlay.classList.remove("opacity-100"); overlay.classList.add("opacity-0"); }
+				if (overlay) {
+					overlay.classList.remove("opacity-100");
+					overlay.classList.add("opacity-0");
+				}
 				syncAttr();
 				showToast();
 			}
@@ -184,16 +225,27 @@ const tLoadError = i18n(I18nKey.videoLoadError);
 		video.addEventListener("ended", onEnded);
 		video.addEventListener("error", onError);
 		// 播放成功时重置错误计数
-		video.addEventListener("playing", function () { errorCount = 0; });
-		if (prevBtn) prevBtn.addEventListener("click", function () { switchTrack(prevIndex()); });
-		if (nextBtn) nextBtn.addEventListener("click", function () { switchTrack(pickIndex(currentIndex)); });
+		video.addEventListener("playing", function () {
+			errorCount = 0;
+		});
+		if (prevBtn)
+			prevBtn.addEventListener("click", function () {
+				switchTrack(prevIndex());
+			});
+		if (nextBtn)
+			nextBtn.addEventListener("click", function () {
+				switchTrack(pickIndex(currentIndex));
+			});
 
 		// 切换壁纸模式时停止播放
 		window.addEventListener("wallpaperModeChange", function (e) {
 			if (e.detail && e.detail.mode === "none" && isPlaying) {
 				isPlaying = false;
 				video.pause();
-				if (overlay) { overlay.classList.remove("opacity-100"); overlay.classList.add("opacity-0"); }
+				if (overlay) {
+					overlay.classList.remove("opacity-100");
+					overlay.classList.add("opacity-0");
+				}
 				syncAttr();
 			}
 		});

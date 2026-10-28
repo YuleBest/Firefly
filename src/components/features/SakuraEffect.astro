@@ -47,21 +47,18 @@
 				return Math.random() * 6;
 			case "a":
 				return (
-					cfg.opacity.min +
-					Math.random() * (cfg.opacity.max - cfg.opacity.min)
+					cfg.opacity.min + Math.random() * (cfg.opacity.max - cfg.opacity.min)
 				);
 			case "fnx": {
 				const random =
 					cfg.speed.horizontal.min +
-					Math.random() *
-						(cfg.speed.horizontal.max - cfg.speed.horizontal.min);
+					Math.random() * (cfg.speed.horizontal.max - cfg.speed.horizontal.min);
 				return (x: number, _y: number) => x + random;
 			}
 			case "fny": {
 				const random =
 					cfg.speed.vertical.min +
-					Math.random() *
-						(cfg.speed.vertical.max - cfg.speed.vertical.min);
+					Math.random() * (cfg.speed.vertical.max - cfg.speed.vertical.min);
 				return (_x: number, y: number) => y + random;
 			}
 			case "fnr":
@@ -451,7 +448,10 @@
 						hidden: document.hidden,
 					});
 				};
-				document.addEventListener("visibilitychange", this.boundHandleVisibility);
+				document.addEventListener(
+					"visibilitychange",
+					this.boundHandleVisibility,
+				);
 			} catch (err) {
 				console.warn("[SakuraWorker] init failed:", err);
 				this.stop();

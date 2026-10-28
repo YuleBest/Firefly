@@ -1,8 +1,11 @@
 import * as path from "node:path";
+
 import type { ImageMetadata } from "astro";
+
 import { profileConfig } from "@/config/profileConfig";
 import { siteConfig } from "@/config/siteConfig";
 import { defaultFavicons } from "@/constants/icon";
+
 import { url } from "./url-utils";
 
 // 构建期一次性收集 src 下的图片资源，用于把 src 相对路径解析成 Astro 构建后的真实 URL。

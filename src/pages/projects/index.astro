@@ -1,10 +1,12 @@
 ---
 import { Icon } from "astro-icon/components";
+
 import ProjectCard from "@/components/pages/projects/ProjectCard.astro";
 import { siteConfig } from "@/config";
 import I18nKey from "@/i18n/i18nKey";
 import { i18n } from "@/i18n/translation";
 import MainGridLayout from "@/layouts/MainGridLayout.astro";
+
 import "@/styles/pages/common.css";
 import { getSortedProjects } from "@/utils/content-utils";
 import {
@@ -12,6 +14,7 @@ import {
 	PROJECT_STATUS_KEYS,
 } from "@/utils/projects-utils";
 import { getFileDirFromPath, removeFileExtension } from "@/utils/url-utils";
+
 import "@/styles/pages/card-grid.css";
 
 // 检查页面是否启用
@@ -60,39 +63,39 @@ const statusFilters = PROJECT_STATUS_KEYS.map((key) => {
 				<strong>{projectMeta.length}</strong>
 				<span>{title}</span>
 			</div>
-		<!-- 搜索 + 状态筛选（标题面板内，整行；搜索与筛选分两行） -->
-		<project-filter style="grid-column: 1 / -1">
-			<div class="relative mb-3">
-				<Icon
-					name="material-symbols:search"
-					class="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400 dark:text-neutral-500 text-lg pointer-events-none"
-				/>
-				<input
-					type="text"
-					data-search
-					placeholder={i18n(I18nKey.projectSearch)}
-					class="w-full pl-10 pr-4 py-2 rounded-xl border border-(--line-divider) bg-transparent text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 dark:placeholder-neutral-500 focus:border-(--primary) focus:ring-1 focus:ring-(--primary) outline-none transition-all duration-200 text-sm"
-				/>
-			</div>
-			<div class="flex flex-wrap items-center gap-2">
-				<button
-					data-status="all"
-					class="category-pill px-3 py-1.5 rounded-full text-sm font-medium transition-colors duration-200"
-					data-active
-				>
-					{i18n(I18nKey.all)}
-				</button>
-				{statusFilters.map((s) => (
+			<!-- 搜索 + 状态筛选（标题面板内，整行；搜索与筛选分两行） -->
+			<project-filter style="grid-column: 1 / -1">
+				<div class="relative mb-3">
+					<Icon
+						name="material-symbols:search"
+						class="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400 dark:text-neutral-500 text-lg pointer-events-none"
+					/>
+					<input
+						type="text"
+						data-search
+						placeholder={i18n(I18nKey.projectSearch)}
+						class="w-full pl-10 pr-4 py-2 rounded-xl border border-(--line-divider) bg-transparent text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 dark:placeholder-neutral-500 focus:border-(--primary) focus:ring-1 focus:ring-(--primary) outline-none transition-all duration-200 text-sm"
+					/>
+				</div>
+				<div class="flex flex-wrap items-center gap-2">
 					<button
-						data-status={s.key}
-						class="category-pill px-3 py-1.5 rounded-full text-sm font-medium transition-colors duration-200 inline-flex items-center gap-1.5"
+						data-status="all"
+						class="category-pill px-3 py-1.5 rounded-full text-sm font-medium transition-colors duration-200"
+						data-active
 					>
-						{s.icon && <Icon name={s.icon} class="text-base" />}
-						{s.label}
+						{i18n(I18nKey.all)}
 					</button>
-				))}
-			</div>
-		</project-filter>
+					{statusFilters.map((s) => (
+						<button
+							data-status={s.key}
+							class="category-pill px-3 py-1.5 rounded-full text-sm font-medium transition-colors duration-200 inline-flex items-center gap-1.5"
+						>
+							{s.icon && <Icon name={s.icon} class="text-base" />}
+							{s.label}
+						</button>
+					))}
+				</div>
+			</project-filter>
 		</header>
 
 		<!-- 内容面板：项目卡片网格 -->
@@ -114,7 +117,10 @@ const statusFilters = PROJECT_STATUS_KEYS.map((key) => {
 			</div>
 		) : (
 			<div class="card-base flex flex-col items-center justify-center py-16 text-neutral-400 dark:text-neutral-500">
-				<Icon name="material-symbols:rocket-launch" class="text-6xl mb-4 opacity-50" />
+				<Icon
+					name="material-symbols:rocket-launch"
+					class="text-6xl mb-4 opacity-50"
+				/>
 				<p class="text-lg">{i18n(I18nKey.projectEmpty)}</p>
 			</div>
 		)}
@@ -191,5 +197,4 @@ const statusFilters = PROJECT_STATUS_KEYS.map((key) => {
 			customElements.define("project-filter", ProjectFilter);
 		}
 	</script>
-
 </MainGridLayout>

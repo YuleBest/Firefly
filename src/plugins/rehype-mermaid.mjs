@@ -1,8 +1,10 @@
 import { readFile } from "node:fs/promises";
+
 import { assertSafeSvgForDom, initMerman, renderSvg } from "@mermanjs/web";
 import { fromHtml } from "hast-util-from-html";
 import { h } from "hastscript";
 import { visit } from "unist-util-visit";
+
 import {
 	DIAGRAM_CONTAINER,
 	DIAGRAM_WRAPPER,
@@ -15,9 +17,8 @@ import {
 } from "./utils/diagramConstants.js";
 import { extractText } from "./utils/extractText.js";
 
-const mermanWasmUrl = import.meta.resolve(
-	"@mermanjs/web/pkg/merman_wasm_bg.wasm",
-);
+const mermanWasmUrl = import.meta
+	.resolve("@mermanjs/web/pkg/merman_wasm_bg.wasm");
 await initMerman({
 	wasm: {
 		module_or_path: await readFile(new URL(mermanWasmUrl)),

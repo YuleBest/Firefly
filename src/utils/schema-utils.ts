@@ -1,4 +1,5 @@
 import type { ProfileConfig, SiteConfig } from "@/types/config";
+
 import { url } from "./url-utils";
 
 /**

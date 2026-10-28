@@ -1,5 +1,6 @@
 import { h } from "hastscript";
 import { visit } from "unist-util-visit";
+
 import clientScript from "./diagram-panzoom-script.js?raw";
 import { DIAGRAM_CONTAINER } from "./utils/diagramConstants.js";
 

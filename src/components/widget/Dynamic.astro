@@ -1,5 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
+
 import WidgetLayout from "@/components/common/WidgetLayout.astro";
 import DynamicSidebar from "@/components/widget/DynamicSidebar.svelte";
 import { dynamicConfig, siteConfig } from "@/config";
@@ -25,29 +26,27 @@ const apiUrl = dynamicConfig.apiUrl?.startsWith("http")
 const memos = dynamicConfig.memos;
 ---
 
-{
-	siteConfig.pages.dynamic && (
-		<WidgetLayout
-			name={i18n(I18nKey.latestDynamics)}
-			showTitle={showTitle}
-			id="latest-dynamics"
-			class={className}
-			style={style}
-		>
-			<DynamicSidebar client:visible apiUrl={apiUrl} limit={limit} {memos} />
-			<a
-				class="btn-plain mt-2 flex items-center justify-center gap-1 rounded-lg p-1.5
+{siteConfig.pages.dynamic && (
+	<WidgetLayout
+		name={i18n(I18nKey.latestDynamics)}
+		showTitle={showTitle}
+		id="latest-dynamics"
+		class={className}
+		style={style}
+	>
+		<DynamicSidebar client:visible apiUrl={apiUrl} limit={limit} {memos} />
+		<a
+			class="btn-plain mt-2 flex items-center justify-center gap-1 rounded-lg p-1.5
 					text-sm text-(--primary)"
-				href={url("/dynamic/")}
-			>
-				<Icon
-					name="material-symbols:dynamic-feed-rounded"
-					class="size-4.5"
-					aria-hidden="true"
-				/>
-				<span>{i18n(I18nKey.moreDynamics)}</span>
-				<span data-dynamic-count class="opacity-60"></span>
-			</a>
-		</WidgetLayout>
-	)
-}
+			href={url("/dynamic/")}
+		>
+			<Icon
+				name="material-symbols:dynamic-feed-rounded"
+				class="size-4.5"
+				aria-hidden="true"
+			/>
+			<span>{i18n(I18nKey.moreDynamics)}</span>
+			<span data-dynamic-count class="opacity-60"></span>
+		</a>
+	</WidgetLayout>
+)}

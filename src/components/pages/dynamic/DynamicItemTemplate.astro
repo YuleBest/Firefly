@@ -1,5 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
+
 import "@/styles/markdown.css";
 import "@/styles/markdown-extend.styl";
 import ImageWrapper from "@/components/common/ImageWrapper.astro";
@@ -46,9 +47,9 @@ const profileUrl = url(dynamicConfig.profileUrl || "/about/");
 					</div>
 				</div>
 				<span class="page-pinned-badge" data-dynamic-pinned hidden>
-	<Icon name="material-symbols:push-pin" class="size-3" />
-	{i18n(I18nKey.pinned)}
-</span>
+					<Icon name="material-symbols:push-pin" class="size-3" />
+					{i18n(I18nKey.pinned)}
+				</span>
 				<span class="page-entry-decoration" aria-hidden="true">
 					<Icon name="material-symbols:format-quote-rounded" />
 				</span>

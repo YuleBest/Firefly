@@ -8,11 +8,13 @@ import {
 	WALLPAPER_NONE,
 	WALLPAPER_OVERLAY,
 } from "@constants/constants";
+
 import type {
 	FullscreenWallpaperLayout,
 	LIGHT_DARK_MODE,
 	WALLPAPER_MODE,
 } from "@/types/config";
+
 import {
 	backgroundWallpaper,
 	displaySettingsConfig,

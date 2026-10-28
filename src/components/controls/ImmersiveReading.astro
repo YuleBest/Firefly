@@ -5,16 +5,16 @@ import { i18n } from "@/i18n/translation";
 ---
 
 <FloatingButton
-  id="immersive-reading-btn"
-  icon="material-symbols:auto-stories"
-  toggleIcon="material-symbols:logout"
-  ariaLabel={i18n(I18nKey.enterImmersiveReading)}
-  onclick="window.toggleImmersiveReading()"
-  class="hide"
+	id="immersive-reading-btn"
+	icon="material-symbols:auto-stories"
+	toggleIcon="material-symbols:logout"
+	ariaLabel={i18n(I18nKey.enterImmersiveReading)}
+	onclick="window.toggleImmersiveReading()"
+	class="hide"
 />
 
 <script>
-  import { initImmersiveReading } from "@/utils/immersive-reading-utils";
+	import { initImmersiveReading } from "@/utils/immersive-reading-utils";
 
-  initImmersiveReading();
+	initImmersiveReading();
 </script>

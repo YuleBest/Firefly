@@ -1,5 +1,6 @@
-import { getCollection } from "astro:content";
 import { createMarkdownProcessor } from "@astrojs/markdown-remark";
+import { getCollection } from "astro:content";
+
 import {
 	dynamicSearchText,
 	dynamicSlug,

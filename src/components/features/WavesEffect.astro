@@ -65,9 +65,7 @@
 
 				// 隐藏静态占位 SVG,由动画 canvas 无缝接管
 				// (canvas 首帧 offset=0,与占位逐像素一致,隐藏瞬间无跳变)
-				const placeholder = container.querySelector<HTMLElement>(
-					".waves-svg",
-				);
+				const placeholder = container.querySelector<HTMLElement>(".waves-svg");
 				if (placeholder) {
 					placeholder.style.display = "none";
 				}
@@ -93,7 +91,12 @@
 
 				this.setupObservers();
 
-				if (!this.reducedMotion && width > 0 && height > 0 && !document.hidden) {
+				if (
+					!this.reducedMotion &&
+					width > 0 &&
+					height > 0 &&
+					!document.hidden
+				) {
 					this.startAnimation();
 				}
 			} catch (err) {
@@ -241,9 +244,7 @@
 			const onTheme = () => this.syncThemeColor();
 			this.boundHandleTheme = onTheme;
 			window.addEventListener("theme-change", onTheme);
-			this.themeObserver = new MutationObserver(() =>
-				this.syncThemeColor(),
-			);
+			this.themeObserver = new MutationObserver(() => this.syncThemeColor());
 			this.themeObserver.observe(document.documentElement, {
 				attributes: true,
 				attributeFilter: ["class", "data-theme", "style"],
@@ -255,10 +256,7 @@
 			};
 			this.boundHandleReducedMotion = onReducedMotion;
 			if (this.reducedMotionQuery) {
-				this.reducedMotionQuery.addEventListener(
-					"change",
-					onReducedMotion,
-				);
+				this.reducedMotionQuery.addEventListener("change", onReducedMotion);
 			}
 		}
 
@@ -278,10 +276,7 @@
 			this.dprQuery = null;
 			const onVisibility = this.boundHandleVisibility;
 			if (onVisibility) {
-				document.removeEventListener(
-					"visibilitychange",
-					onVisibility,
-				);
+				document.removeEventListener("visibilitychange", onVisibility);
 			}
 			const onTheme = this.boundHandleTheme;
 			if (onTheme) {
@@ -291,10 +286,7 @@
 			this.themeObserver = null;
 			const onReducedMotion = this.boundHandleReducedMotion;
 			if (onReducedMotion) {
-				this.reducedMotionQuery?.removeEventListener(
-					"change",
-					onReducedMotion,
-				);
+				this.reducedMotionQuery?.removeEventListener("change", onReducedMotion);
 			}
 			this.reducedMotionQuery = null;
 			this.boundHandleResize = null;

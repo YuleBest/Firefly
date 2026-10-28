@@ -1,8 +1,7 @@
 /// <reference types="mdast" />
 import { h } from "hastscript";
-import githubCardData from "../constants/github-card-data.json" with {
-	type: "json",
-};
+
+import githubCardData from "../constants/github-card-data.json" with { type: "json" };
 import { isValidGithubRepository } from "../utils/github-card-utils.ts";
 
 /**

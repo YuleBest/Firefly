@@ -1,5 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
+
 import I18nKey from "@/i18n/i18nKey";
 import { i18n } from "@/i18n/translation";
 
@@ -11,7 +12,11 @@ const { src } = Astro.props;
 ---
 
 <dynamic-inline-comments class="page-inline-comments" data-src={src}>
-	<button type="button" class="page-comment-toggle btn-plain" data-comment-toggle>
+	<button
+		type="button"
+		class="page-comment-toggle btn-plain"
+		data-comment-toggle
+	>
 		<Icon name="material-symbols:chat-bubble-outline-rounded" />
 		<span>{i18n(I18nKey.comments)}</span>
 		<Icon

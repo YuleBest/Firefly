@@ -1,0 +1,52 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "categories": {
+    "correctness": "error"
+  },
+  "rules": {
+    "eslint/no-param-reassign": "error",
+    "typescript/prefer-as-const": "error",
+    "eslint/default-param-last": "error",
+    "typescript/prefer-enum-initializers": "error",
+    "unicorn/prefer-number-properties": "error",
+    "eslint/no-else-return": "error",
+    "eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_",
+        "caughtErrorsIgnorePattern": "^_"
+      }
+    ],
+    "eslint/no-control-regex": "off",
+    "eslint/no-unused-expressions": "off",
+    "typescript/triple-slash-reference": "off",
+    "unicorn/no-new-array": "off"
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2024": true
+  },
+  "globals": {
+    "Astro": "readonly"
+  },
+  "ignorePatterns": [
+    "dist/**",
+    "node_modules/**",
+    ".astro/**",
+    "src/constants/icons-data.json",
+    "src/constants/lqips.json"
+  ],
+  "overrides": [
+    {
+      "files": ["**/*.astro", "**/*.svelte"],
+      "rules": {
+        "eslint/no-unused-vars": "off",
+        "eslint/prefer-const": "off",
+        "eslint/no-param-reassign": "off",
+        "typescript/consistent-type-imports": "off",
+        "unicorn/prefer-number-properties": "off"
+      }
+    }
+  ]
+}

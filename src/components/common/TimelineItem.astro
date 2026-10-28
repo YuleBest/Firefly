@@ -29,7 +29,7 @@ const iconHtml = icon ? ICONS[icon] : undefined;
 
 <li class="timeline-item" data-type={type}>
 	<div class="timeline-marker" aria-hidden="true">
-		{iconHtml && <span class="timeline-marker-icon" set:html={iconHtml}></span>}
+		{iconHtml && <span class="timeline-marker-icon" set:html={iconHtml} />}
 	</div>
 	<div class="timeline-content">
 		{date && <div class="timeline-item-date">{date}</div>}
@@ -49,23 +49,43 @@ const iconHtml = icon ? ICONS[icon] : undefined;
 
 	.timeline-item[data-type="tip"] {
 		--node-bg: var(--admonitions-color-tip);
-		--node-ring: color-mix(in srgb, var(--admonitions-color-tip) 22%, transparent);
+		--node-ring: color-mix(
+			in srgb,
+			var(--admonitions-color-tip) 22%,
+			transparent
+		);
 	}
 	.timeline-item[data-type="note"] {
 		--node-bg: var(--admonitions-color-note);
-		--node-ring: color-mix(in srgb, var(--admonitions-color-note) 22%, transparent);
+		--node-ring: color-mix(
+			in srgb,
+			var(--admonitions-color-note) 22%,
+			transparent
+		);
 	}
 	.timeline-item[data-type="important"] {
 		--node-bg: var(--admonitions-color-important);
-		--node-ring: color-mix(in srgb, var(--admonitions-color-important) 22%, transparent);
+		--node-ring: color-mix(
+			in srgb,
+			var(--admonitions-color-important) 22%,
+			transparent
+		);
 	}
 	.timeline-item[data-type="warning"] {
 		--node-bg: var(--admonitions-color-warning);
-		--node-ring: color-mix(in srgb, var(--admonitions-color-warning) 22%, transparent);
+		--node-ring: color-mix(
+			in srgb,
+			var(--admonitions-color-warning) 22%,
+			transparent
+		);
 	}
 	.timeline-item[data-type="caution"] {
 		--node-bg: var(--admonitions-color-caution);
-		--node-ring: color-mix(in srgb, var(--admonitions-color-caution) 22%, transparent);
+		--node-ring: color-mix(
+			in srgb,
+			var(--admonitions-color-caution) 22%,
+			transparent
+		);
 	}
 
 	.timeline-item {

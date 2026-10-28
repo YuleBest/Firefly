@@ -258,7 +258,7 @@ location: China # 位置
 | `pnpm build`               | 构建网站至 `./dist/`                   |
 | `pnpm preview`             | 本地预览已构建的网站                   |
 | `pnpm check`               | 检查代码中的错误                       |
-| `pnpm format`              | 使用 Biome 格式化您的代码              |
+| `pnpm format`              | 使用 Oxfmt 格式化您的代码              |
 | `pnpm new-post <filename>` | 创建新文章                             |
 | `pnpm new-d <content>`     | 创建一条动态                           |
 | `pnpm new-dynamic <content>` | 创建一条动态（完整命令）              |

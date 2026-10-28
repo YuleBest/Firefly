@@ -81,7 +81,9 @@
   /* --content-top 由 html[data-wallpaper-mode] + body.is-home + 媒体查询解析（解析期生效，无 JS 内联 top） */
   /* banner（桌面全页 + 移动首页）：内容在横幅下方，重叠 3.5rem */
   html[data-wallpaper-mode="banner"] .content-panel {
-    --content-top: calc(var(--banner-height-home) - 3.5rem); /* = 65vh - 3.5rem */
+    --content-top: calc(
+      var(--banner-height-home) - 3.5rem
+    ); /* = 65vh - 3.5rem */
   }
   /* banner 移动端非首页：横幅隐藏，内容从导航栏下方开始 */
   @media (max-width: 1023px) {
@@ -122,16 +124,29 @@
      与内容区 FLIP（同为 transform）同步；不用 height 过渡，避免大图重布局掉帧 */
   @media (min-width: 1024px) {
     html[data-wallpaper-mode="banner"] body:not(.is-home) #wallpaper-wrapper {
-      transform: translateY(calc(var(--banner-height-non-home) - var(--banner-height-home)));
+      transform: translateY(
+        calc(var(--banner-height-non-home) - var(--banner-height-home))
+      );
     }
     html[data-wallpaper-mode="banner"] body:not(.is-home) .content-panel {
       --content-top: calc(var(--banner-height-non-home) - 3.5rem);
     }
     /* 非首页标题反向平移：抵消 wrapper 一半的 -20vh，使标题落在缩短后 45vh 横幅的正中 */
-    html[data-wallpaper-mode="banner"] body:not(.is-home) #banner-overlay-container .banner-home-text-overlay,
-    html[data-wallpaper-mode="banner"] body:not(.is-home) #banner-overlay-container .banner-page-title-overlay,
-    html[data-wallpaper-mode="banner"] body:not(.is-home) #banner-overlay-container .banner-post-meta-overlay {
-      transform: translateY(calc((var(--banner-height-home) - var(--banner-height-non-home)) / 2));
+    html[data-wallpaper-mode="banner"]
+      body:not(.is-home)
+      #banner-overlay-container
+      .banner-home-text-overlay,
+    html[data-wallpaper-mode="banner"]
+      body:not(.is-home)
+      #banner-overlay-container
+      .banner-page-title-overlay,
+    html[data-wallpaper-mode="banner"]
+      body:not(.is-home)
+      #banner-overlay-container
+      .banner-post-meta-overlay {
+      transform: translateY(
+        calc((var(--banner-height-home) - var(--banner-height-non-home)) / 2)
+      );
     }
   }
 
@@ -150,16 +165,24 @@
   html.is-page-transitioning #wallpaper-wrapper {
     transition: transform 220ms linear;
   }
-  html.is-page-transitioning #banner-overlay-container .banner-home-text-overlay,
-  html.is-page-transitioning #banner-overlay-container .banner-page-title-overlay,
-  html.is-page-transitioning #banner-overlay-container .banner-post-meta-overlay {
+  html.is-page-transitioning
+    #banner-overlay-container
+    .banner-home-text-overlay,
+  html.is-page-transitioning
+    #banner-overlay-container
+    .banner-page-title-overlay,
+  html.is-page-transitioning
+    #banner-overlay-container
+    .banner-post-meta-overlay {
     transition: transform 220ms linear;
   }
   html.is-wallpaper-transitioning .content-panel {
     transition: top 450ms cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
   }
   html.is-wallpaper-transitioning #wallpaper-wrapper {
-    transition: opacity 400ms ease, height 450ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition:
+      opacity 400ms ease,
+      height 450ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
   html[data-layout-init] .content-panel,
   html[data-layout-init] #wallpaper-wrapper {

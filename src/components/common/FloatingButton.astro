@@ -30,18 +30,22 @@ const {
 ---
 
 <div
-  id={id}
-  title={title ?? ariaLabel}
-  class:list={["floating-btn", className, "card-base flex items-center rounded-2xl overflow-hidden transition"]}
-  onclick={onclick}
+	id={id}
+	title={title ?? ariaLabel}
+	class:list={[
+		"floating-btn",
+		className,
+		"card-base flex items-center rounded-2xl overflow-hidden transition",
+	]}
+	onclick={onclick}
 >
-  <button
-    aria-label={ariaLabel}
-    class:list={["h-full w-full rounded-2xl", toggleIcon && "has-toggle-icon"]}
-  >
-    <Icon name={icon} class:list={["mx-auto", toggleIcon && "icon-default"]} />
-    {toggleIcon && <Icon name={toggleIcon} class="icon-toggled" />}
-  </button>
+	<button
+		aria-label={ariaLabel}
+		class:list={["h-full w-full rounded-2xl", toggleIcon && "has-toggle-icon"]}
+	>
+		<Icon name={icon} class:list={["mx-auto", toggleIcon && "icon-default"]} />
+		{toggleIcon && <Icon name={toggleIcon} class="icon-toggled" />}
+	</button>
 </div>
 
 <style lang="stylus">
