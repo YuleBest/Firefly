@@ -3,3 +3,9 @@ packages:
 allowBuilds:
   esbuild: true
   workerd: true
+minimumReleaseAgeExclude:
+  - '@astrojs/cloudflare@14.4.3'
+  - '@astrojs/markdown-remark@7.3.5'
+  - '@astrojs/mdx@8.1.2'
+  - '@astrojs/prism@4.1.2'
+  - '@astrojs/svelte@9.1.2'
