@@ -239,7 +239,6 @@ export default defineConfig({
 					"creative-commons",
 					"creative-commons-pd",
 					"creative-commons-zero",
-					"gitee",
 					"github",
 					"node-js",
 					"osi",
