@@ -10,6 +10,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "check": "astro check",
+    "prebuild": "rm -f node_modules/.astro/data-store.json && rm -rf node_modules/.astro/data-store",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
