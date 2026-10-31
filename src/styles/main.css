@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@import "./google-sans-flex.css";
+@import "./jetbrains-mono.css";
 @import "./layout-styles.css";
 @import "./navbar.css";
 @import "./banner-title.css";
@@ -18,9 +20,10 @@
 /* Tailwind v4 配置 - 从 tailwind.config.cjs 迁移 */
 @theme {
   --font-sans:
-    ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    "Google Sans Flex", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 /* 自定义工具类 - Tailwind v4 使用 @utility 定义 */

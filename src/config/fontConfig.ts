@@ -1,8 +1,9 @@
 /**
  * 字体配置（统一入口）
  *
- * 当前全部使用系统字体，不加载任何远程或本地字体文件。
- * 如需恢复自定义字体：
+ * 正文使用本地 Google Sans Flex，代码块使用本地 JetBrains Mono，
+ * 均在 src/styles 中通过 @font-face 引入。Astro Font API 保持关闭。
+ * 如需恢复 Astro Font API 自定义字体：
  * 1. 在 fontsList 中添加 Astro Font API 字体定义
  * 2. 将 fontConfig.enable 设为 true
  * 3. 在 fontConfig.selected 或区域字段中引用对应的 cssVariable

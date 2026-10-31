@@ -61,7 +61,7 @@
     /* 行内代码走 fontConfig.codeFont（--font-code 由 FontSetup.astro 输出），带等宽保底 */
     font-family: var(
       --font-code,
-      "JetBrains Maple Mono",
+      "JetBrains Mono",
       ui-monospace,
       SFMono-Regular,
       Menlo,

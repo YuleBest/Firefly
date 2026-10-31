@@ -2,13 +2,14 @@
 /**
  * FontSetup.astro
  *
- * 站点使用系统字体，只输出代码块/行内代码使用的等宽字体变量。
+ * 站点正文使用 Google Sans Flex，代码块使用 JetBrains Mono，
+ * 两者均由 main.css 引入的本地 @font-face 提供。
  */
 import { fontConfig } from "@/config";
 
 // 代码字体的系统保底栈，保证行内代码/代码块始终是等宽字体
 const MONO_FONT_STACK =
-	'"JetBrains Maple Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace';
+	'"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace';
 const codeFontVar = fontConfig.codeFont;
 const codeFontFamily = codeFontVar
 	? `var(${codeFontVar}, ${MONO_FONT_STACK})`
