@@ -281,6 +281,8 @@ export default defineConfig({
 			},
 		}),
 		expressiveCode({
+			// 内联 EC 样式，避免 dev 热更新后 /_astro/ec.*.css 哈希资产 404
+			emitExternalStylesheet: false,
 			themes: [expressiveCodeConfig.darkTheme, expressiveCodeConfig.lightTheme],
 			useDarkModeMediaQuery: false,
 			themeCssSelector: (theme) => `[data-theme='${theme.name}']`,
